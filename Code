@@ -1,0 +1,86 @@
+# lear
+# Tic Tac Toe
+
+# Welcome to the Tic Tac Toe 2
+# This game is not made in pygame
+
+print("\nWelcome User to the Tic Tac Toe!")
+
+board = """
+     F      T      J
+  ____________________
+ |      |      |      |
+ |   .  |   .  |   .  |  1
+ |______|______|______|
+ |      |      |      |
+ |   .  |   .  |   .  |  2
+ |______|______|______|
+ |      |      |      |
+ |   .  |   .  |   .  |  3
+ |______|______|______|
+ """
+
+
+"""
+X  -  Player 1
+
+O  -  Player 2
+
+.  -  Empty square
+
+"""
+
+indices = [i for i, c in enumerate(board) if c == "."]
+
+Cord = {
+    "f1": indices[0],
+    "t1": indices[1],
+    "j1": indices[2],
+    "f2": indices[3],
+    "t2": indices[4],
+    "j2": indices[5],
+    "f3": indices[6],
+    "t3": indices[7],
+    "j3": indices[8]
+}
+
+
+print(board)
+
+while True:
+    x_move = input("X's move : ")
+
+    board = list(board)
+    board[Cord[x_move]] = "X"
+    board = "".join(board)
+
+    print(board)
+
+    if board[Cord["f1"]] == "X" and board[Cord["t1"]] == "X" and board[Cord["j1"]] == "X" or board[Cord["f1"]] == "X" and board[Cord["f2"]] == "X" and board[Cord["f3"]] == "X" or board[Cord["f1"]] == "X" and board[Cord["t2"]] == "X" and board[Cord["j3"]] == "X" or board[Cord["f2"]] == "X" and board[Cord["t2"]] == "X" and board[Cord["j2"]] == "X" or board[Cord["f3"]] == "X" and board[Cord["t3"]] == "X" and board[Cord["j3"]] == "X" or board[Cord["f3"]] == "X" and board[Cord["t2"]] == "X" and board[Cord["j1"]] == "X" or board[Cord["t1"]] == "X" and board[Cord["t2"]] == "X" and board[Cord["t3"]] == "X" or board[Cord["j1"]] == "X" and board[Cord["j2"]] == "X" and board[Cord["j3"]] == "X":
+        print("""
+        =================
+              X Won!
+        =================""")
+        break
+
+    elif board.count("X") == 5 and board.count("O") == 4:
+        print("""
+        =============
+             Tie!
+        =============""")
+        break
+
+    o_move = input("O's move : ")
+
+    board = list(board)
+    board[Cord[o_move]] = "O"
+    board = "".join(board)
+
+    print(board)
+
+    if board[Cord["f1"]] == "O" and board[Cord["t1"]] == "O" and board[Cord["j1"]] == "O" or board[Cord["f1"]] == "O" and board[Cord["f2"]] == "O" and board[Cord["f3"]] == "O" or board[Cord["f1"]] == "O" and board[Cord["t2"]] == "O" and board[Cord["j3"]] == "O" or board[Cord["f2"]] == "O" and board[Cord["t2"]] == "O" and board[Cord["j2"]] == "O" or board[Cord["f3"]] == "O" and board[Cord["t3"]] == "O" and board[Cord["j3"]] == "O" or board[Cord["f3"]] == "O" and board[Cord["t2"]] == "O" and board[Cord["j1"]] == "O" or board[Cord["t1"]] == "O" and board[Cord["t2"]] == "O" and board[Cord["t3"]] == "O" or board[Cord["j1"]] == "O" and board[Cord["j2"]] == "O" and board[Cord["j3"]] == "O":
+        print("""
+        =================
+              O Won!
+        =================""")
+        break
